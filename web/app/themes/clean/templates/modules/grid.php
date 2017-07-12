@@ -27,8 +27,18 @@
 		$link = get_permalink($poster->ID);
 	?>
 
+	<?php if($key > 0){ ?>
+	<article class="non-frame group">
+		<?php echo $key; if($key == 1){ ?>
+
+			<div class="content"><?php echo $post->post_content; ?></div>
+
+		<?php } ?>
+	</article>
+	<?php } ?>
+
 	<!-- Poster HTML -->
-	<article class="poster-frame group" data-url="<?php echo $link; ?>?iframe=true" data-title="<?php echo $poster->post_title; ?>" data-contributors="serialized_json">
+	<article class="poster-frame group" data-url="<?php echo $link; ?>?iframe=true" data-title="<?php echo $poster->post_title; ?>" data-contributors="<?php echo json_encode($collaborators); ?>">
 		<div class="iframe group">
 			<iframe rel="iframe_written_here"></iframe>
 		</div>
@@ -41,14 +51,7 @@
 		</div>
 	</article>
 
-	<article class="non-frame group">
-		<?php echo $key; if($key == 0){ ?>
-
-			<div class="content"><?php echo $post->post_content; ?></div>
-
-		<?php } ?>
-	</article>
-
 	<?php } ?>
 
+	<article class="non-frame group hidden"></article>
 </div>

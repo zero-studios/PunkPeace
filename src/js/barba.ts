@@ -6,6 +6,7 @@ import * as Grid from "./grid";
 /*  Constants
 -------------------------------------------------- */
 const $container = <any>document.getElementById("container");
+const $header = <any>document.getElementById("header");
 /*  Home View
 -------------------------------------------------- */
 const HomeView = Barba.BaseView.extend({
@@ -23,6 +24,9 @@ const HomeView = Barba.BaseView.extend({
 -------------------------------------------------- */
 const PunkView = Barba.BaseView.extend({
     namespace: "punk",
+    onEnter: function(){
+        $header.className += " reverse";
+    },
     onEnterCompleted: function(){
         Grid.init();
 
@@ -30,6 +34,7 @@ const PunkView = Barba.BaseView.extend({
     },
     onLeave: function(){
         $container.removeEventListener("scroll", Grid.scrolling);
+        $header.classList.remove("reverse");
     }
 });
 /*  Peace View
@@ -57,19 +62,36 @@ Barba.Pjax.start();
 -------------------------------------------------- */
 var HideShowTransition = Barba.BaseTransition.extend({
     start: function(){
-        this.newContainerLoading.then(this.fadeOut.bind(this)).then(this.fadeIn.bind(this));
+
+        const promise = this.newContainerLoading;
+
+        promise.then(this.fadeOut.bind(this)).then(this.fadeIn.bind(this));
     },
     fadeOut: function(){
-    	
-    	Velocity(this.oldContainer, "fadeOut", { delay: 0, duration: 400 });
+        
+        return Velocity(this.oldContainer, "fadeOut", { delay: 0, duration: 300 });
     },
     fadeIn: function(){
 
-    	$container.scrollTop = 0;
+        let _this = this;
+        let $el = _this.newContainer;
 
-    	Velocity(this.newContainer, "fadeIn", { delay: 0, duration: 400 });
+        $el.style.visibility = 'visible';
+        $el.style.opacity = 0.01;
 
-    	this.done();
+        $container.scrollTop = 0;
+
+        return Velocity(_this.newContainer, "fadeIn", { delay: 0, duration: 300, complete: function(){
+
+            // ga('set', 'page', location.pathname);
+            // ga('send', {
+            //     hitType: 'pageview',
+            //     page: location.pathname,
+            //     title: document.title
+            // });
+        
+            _this.done();
+        }});
     }
 });
 /*  Barba Transition Init

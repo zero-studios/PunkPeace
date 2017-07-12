@@ -33,7 +33,11 @@ module.exports = {
         filename: "[name]",
         disable: process.env.NODE_ENV === "development"
     }),
-    new OptimizeCssAssetsPlugin(),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        zindex: false
+      }
+    }),
     new CopyWebpackPlugin([
       {
         from: './src/images',

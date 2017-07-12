@@ -6,10 +6,11 @@
 $white: #ffffff;
 $black: #000000;
 
-$imgpath: '/assets/images/';
+$imgpath: '/app/themes/clean/assets/images/';
 
 /* Includes - put all your other css imoprts here
 -------------------------------------------------- */
+@import "header";
 @import "grid";
 /* Box sizing */
 *{box-sizing:border-box}
