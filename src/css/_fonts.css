@@ -1,0 +1,48 @@
+@font-face{
+  font-family:'Avenir-Book';
+  src: url('/app/themes/nobody/assets/fonts/Avenir-Book.eot');
+  src: url('/app/themes/nobody/assets/fonts/Avenir-Book.woff2') format('woff2'),
+       url('/app/themes/nobody/assets/fonts/Avenir-Book.woff') format('woff'),
+       url('/app/themes/nobody/assets/fonts/Avenir-Book.ttf') format('truetype'),
+       url('/app/themes/nobody/assets/fonts/Avenir-Book.svg#Avenir-Book') format('svg'),
+       url('/app/themes/nobody/assets/fonts/Avenir-Book.eot?#iefix') format('embedded-opentype');
+  font-weight:normal;
+  font-style:normal;
+  font-stretch:normal;
+}
+@font-face {
+  font-family: 'Canela-Regular';
+  src: url('/app/themes/nobody/assets/fonts/Canela-Regular-Web.eot');
+  src: url('/app/themes/nobody/assets/fonts/Canela-Regular-Web.woff2') format('woff2'),
+       url('/app/themes/nobody/assets/fonts/Canela-Regular-Web.woff') format('woff'),
+       url('/app/themes/nobody/assets/fonts/Canela-Regular.ttf') format('truetype'),
+       url('/app/themes/nobody/assets/fonts/Canela-Regular.svg#Canela-Regular') format('svg'),
+       url('/app/themes/nobody/assets/fonts/Canela-Regular-Web.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch:normal;
+}
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.eot');
+  src: url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.woff2') format('woff2'),
+       url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.woff') format('woff'),
+       url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.ttf') format('truetype'),
+       url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.svg#Work-Sans') format('svg'),
+       url('/app/themes/nobody/assets/fonts/worksans-regular-webfont.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch:normal;
+}
+@font-face {
+  font-family: 'Work-SansBold';
+  src: url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.eot');
+  src: url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.woff2') format('woff2'),
+       url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.woff') format('woff'),
+       url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.ttf') format('truetype'),
+       url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.svg#Work-SansBold') format('svg'),
+       url('/app/themes/nobody/assets/fonts/worksans-bold-webfont.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch:normal;
+}

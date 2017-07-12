@@ -1,0 +1,65 @@
+/* Fonts
+-------------------------------------------------- */
+@import "_fonts";
+/* Variables
+-------------------------------------------------- */
+$white: #ffffff;
+$black: #000000;
+
+$imgpath: '/assets/images/';
+
+/* Includes - put all your other css imoprts here
+-------------------------------------------------- */
+
+/* Box sizing */
+*{box-sizing:border-box}
+/* Font anti-aliasing in browsers that support it */
+html, html a{-webkit-font-smoothing:antialiased !important;-moz-osx-font-smoothing:grayscale;text-shadow:1px 1px 1px rgba(0,0,0,0.004);}
+/* Customized Selections - Change color to match design */
+::-moz-selection{background:$black;text-shadow:none;color:$white;}
+::selection{background:$black;text-shadow:none;color:$white;}
+::-moz-selection a, ::-moz-selection p a{color:$white;}
+::selection a, ::selection p a{color:$white;}
+/* Customized Placeholders - Change color to match design */
+::-webkit-input-placeholder{color:$black;opacity:1;}
+:-moz-placeholder{color:$black;opacity:1;}
+::-moz-placeholder{color:$black;opacity:1;}
+:-ms-input-placeholder{color:$black;opacity:1;}
+/* Helpers */
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden{display:none!important;visibility:hidden}
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+/* Group: contain floats */
+.group:after,.group:before,.section ul:after,.section ul:before{content:" ";display:table}.group:after,.section ul:after{clear:both}.group,.section ul{*zoom:1}
+/* Main Scrollbar */
+::-webkit-scrollbar{
+	width: 0;
+}
+::-webkit-scrollbar-button{
+
+}
+::-webkit-scrollbar-track{
+	
+}
+::-webkit-scrollbar-track-piece{
+
+}
+::-webkit-scrollbar-thumb{
+	
+}
+::-webkit-scrollbar-corner{
+
+}
+::-webkit-resizer{
+
+}
+/* Global styles
+-------------------------------------------------- */
+@import "_globals";
+/* General styles
+-------------------------------------------------- */
+@import "_general";
+/* Plugin specific styles
+-------------------------------------------------- */
+@import "_plugins";

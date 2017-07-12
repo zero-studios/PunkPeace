@@ -1,0 +1,35 @@
+/* 	This file is to store the minimum css needed to 
+	render the page upon first load.
+-------------------------------------------------- */
+@import "_normalize";
+/* 	Init CSS
+-------------------------------------------------- */
+html {
+    font-size:62.5%;
+    line-height:1.325;
+}
+
+body {
+	font-size:13px;
+  	font-size:1.3em;
+	margin: 0;
+	position: relative;
+}
+
+html,
+body{
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+#container{
+	height: 100%;
+	min-height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
+	-webkit-overflow-scrolling: touch;
+}

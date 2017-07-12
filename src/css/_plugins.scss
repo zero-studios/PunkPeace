@@ -1,0 +1,26 @@
+/* Plugin specific styles
+-------------------------------------------------- */
+/* Flickity v2.0.7 required styles
+-------------------------------------------------- */
+.flickity-enabled {
+  position: relative;
+}
+.flickity-enabled:focus { outline: none; }
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+          tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
