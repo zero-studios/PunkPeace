@@ -39,15 +39,6 @@ if($feat_image_large[0] && $feat_image_large[0] !== ""){
 <meta name="twitter:image" content="<?php echo "https://$_SERVER[HTTP_HOST]" . $tw_img; ?>" />
 <meta name="twitter:site" content="<?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
 <meta name="twitter:title" content="<?php echo WPTITLE; ?>" />
-<!-- Deferred CSS -->
-<script type="text/javascript">
-	var stylesheet = document.createElement('link');
-	stylesheet.href = '/app/themes/clean/assets/css/main.css';
-	stylesheet.rel = 'stylesheet';
-	stylesheet.type = 'text/css';
-	document.getElementsByTagName('head')[0].appendChild(stylesheet);
-</script>
-<noscript><link rel="stylesheet" href="/app/themes/clean/assets/css/main.css"></noscript>
 </head>
 <body>
 <div id="container" class="group">

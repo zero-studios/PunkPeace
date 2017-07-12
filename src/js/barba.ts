@@ -1,36 +1,34 @@
+/*  Load Plugins / Functions
+-------------------------------------------------- */
 import * as Barba from "barba.js";
-import * as Func from "./functions";
 import * as Velocity from "velocity-animate";
-
-const $body = document.body;
+/*  Constants
+-------------------------------------------------- */
 const $container = <any>document.getElementById("container");
-const $barba = document.getElementById("barba-wrapper");
-const gww = Func.getViewport().width;
-const gwh = Func.getViewport().height;
-
-// on load
-window.onload = function(){
-
-}
-
-
+/*  Import Home
+-------------------------------------------------- */
+import * as Home from "./home";
+/*  Home View
+-------------------------------------------------- */
 const HomeView = Barba.BaseView.extend({
-	namespace: "home",
+	namespace: "home-page",
 	onEnterCompleted: function(){
-		
+		Home.init();
+
+        $container.addEventListener("scroll", Home.scrolling);
 	},
 	onLeave: function(){
-		
+		$container.removeEventListener("scroll", Home.scrolling);
 	}
 });
-
-
-
-// set inits
+/*  Barba Inits
+-------------------------------------------------- */
 HomeView.init();
-// start barba
+/*  Barba Start
+-------------------------------------------------- */
 Barba.Pjax.start();
-// barba page transition
+/*  Barba Transition Define
+-------------------------------------------------- */
 var HideShowTransition = Barba.BaseTransition.extend({
     start: function(){
         this.newContainerLoading.then(this.fadeOut.bind(this)).then(this.fadeIn.bind(this));
@@ -48,7 +46,8 @@ var HideShowTransition = Barba.BaseTransition.extend({
     	this.done();
     }
 });
-// barba set transition
+/*  Barba Transition Init
+-------------------------------------------------- */
 Barba.Pjax.getTransition = function(){
     return HideShowTransition;
 };

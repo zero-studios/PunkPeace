@@ -1,0 +1,45 @@
+.poster-frame,
+.non-frame{
+	background-color: $black;
+	display: block;
+	float: left;
+	height: 0;
+	padding: 0 0 40%;
+	position: relative;
+	width: 33.3333%;
+
+	.iframe{
+		background-color: pink;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		-webkit-transition: opacity 500ms ease-in-out;
+		transition: opacity 500ms ease-in-out;
+		width: 100%;
+
+		iframe{
+			border: 0 none;
+			height: 100%;
+			outline: 0 none;
+			width: 100%;
+		}
+	}
+
+	&.loaded{
+
+		.iframe{
+			opacity: 1;
+		}
+	}
+}
+
+.non-frame{
+	background-color: $white;
+}
+
+.optional{
+	display: none;
+}

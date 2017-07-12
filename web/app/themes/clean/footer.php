@@ -14,5 +14,14 @@ m=s.getElementsByTagName(o)
 ga('create', 'XXXXXXXX', 'auto'); 
 ga('send', 'pageview');
 </script>-->
+<!-- Deferred CSS -->
+<script type="text/javascript">
+	var stylesheet = document.createElement('link');
+	stylesheet.href = '/app/themes/clean/assets/css/main.css';
+	stylesheet.rel = 'stylesheet';
+	stylesheet.type = 'text/css';
+	document.getElementsByTagName('head')[0].appendChild(stylesheet);
+</script>
+<noscript><link rel="stylesheet" href="/app/themes/clean/assets/css/main.css"></noscript>
 <?php wp_footer(); ?>
 </body>

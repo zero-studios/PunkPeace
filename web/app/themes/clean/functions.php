@@ -134,8 +134,8 @@ function add_register_post_types(){
             'exclude_from_search' => false,
             'menu_position' => 5,
             'rewrite' => array( // This is the slug for the post types, Ex: /example/example-post/
-                'slug' => '',
-                'with_front' => false
+                'slug' => 'poster',
+                'with_front' => true
             ),
             'supports' => array(
                 'title',

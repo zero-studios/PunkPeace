@@ -10,7 +10,7 @@ module.exports = {
     'js/main.js': [
       './src/js/main.ts'
     ],
-    'js/_init.css': [
+    'css/_init.css': [
       './src/css/_init.scss'
     ],
     'css/main.css': [
