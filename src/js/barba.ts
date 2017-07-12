@@ -2,28 +2,54 @@
 -------------------------------------------------- */
 import * as Barba from "barba.js";
 import * as Velocity from "velocity-animate";
+import * as Grid from "./grid";
 /*  Constants
 -------------------------------------------------- */
 const $container = <any>document.getElementById("container");
-/*  Import Home
--------------------------------------------------- */
-import * as Home from "./home";
 /*  Home View
 -------------------------------------------------- */
 const HomeView = Barba.BaseView.extend({
 	namespace: "home-page",
 	onEnterCompleted: function(){
-		Home.init();
+		Grid.init();
 
-        $container.addEventListener("scroll", Home.scrolling);
+        $container.addEventListener("scroll", Grid.scrolling);
 	},
 	onLeave: function(){
-		$container.removeEventListener("scroll", Home.scrolling);
+		$container.removeEventListener("scroll", Grid.scrolling);
 	}
+});
+/*  Punk View
+-------------------------------------------------- */
+const PunkView = Barba.BaseView.extend({
+    namespace: "punk",
+    onEnterCompleted: function(){
+        Grid.init();
+
+        $container.addEventListener("scroll", Grid.scrolling);
+    },
+    onLeave: function(){
+        $container.removeEventListener("scroll", Grid.scrolling);
+    }
+});
+/*  Peace View
+-------------------------------------------------- */
+const PeaceView = Barba.BaseView.extend({
+    namespace: "peace",
+    onEnterCompleted: function(){
+        Grid.init();
+
+        $container.addEventListener("scroll", Grid.scrolling);
+    },
+    onLeave: function(){
+        $container.removeEventListener("scroll", Grid.scrolling);
+    }
 });
 /*  Barba Inits
 -------------------------------------------------- */
 HomeView.init();
+PunkView.init();
+PeaceView.init();
 /*  Barba Start
 -------------------------------------------------- */
 Barba.Pjax.start();

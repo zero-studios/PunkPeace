@@ -41,7 +41,10 @@ if($feat_image_large[0] && $feat_image_large[0] !== ""){
 <meta name="twitter:title" content="<?php echo WPTITLE; ?>" />
 </head>
 <body>
+<?php if(!isset($_GET["iframe"]) || $_GET["iframe"] == false){ ?>
 <div id="container" class="group">
+	
 	<header id="header" class="group">
 		<?php include(locate_template('templates/modules/navigation.php')); ?>
 	</header>
+<?php } ?>

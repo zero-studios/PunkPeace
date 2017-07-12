@@ -7,10 +7,12 @@ $path = str_replace($protocol . $_SERVER['HTTP_HOST'], "", get_template_director
 
 ?>
 
+<?php if(!isset($_GET["iframe"]) || $_GET["iframe"] == false){ ?>
 <div id="barba-wrapper">
 	<div class="barba-container" data-namespace="<?php echo sanitize_title($tokens[1]); ?>">
 
 		<main id="main" class="<?php echo sanitize_title($tokens[1]); ?> group">
+<?php } ?>
 
 		<?php
 		if($post->post_parent !== 0){
@@ -28,9 +30,11 @@ $path = str_replace($protocol . $_SERVER['HTTP_HOST'], "", get_template_director
 		}
 		?>
 
+<?php if(!isset($_GET["iframe"]) || $_GET["iframe"] == false){ ?>
 		</main>
 
 	</div>
 </div>
+<?php } ?>
 
 <?php get_footer(); ?>

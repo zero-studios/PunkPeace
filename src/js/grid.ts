@@ -55,11 +55,13 @@ export const scrolling = function(){
 function posterLoad(start, count){
 
 	let posters = document.getElementsByClassName("poster-frame");
+	let nonposters = document.getElementsByClassName("non-frame");
 
 	if(!Func.hasClass(posters[start], "loading")){
 		for(let i = start; i < start + count; i++){
 			if(posters[i]){
 				posters[i].className += " loading";
+				nonposters[i].className += " loading";
 
 				let iframe = posters[i].querySelector("iframe");
 
@@ -67,6 +69,7 @@ function posterLoad(start, count){
 				iframe.onload = function(){
 					// transition in iframe after load
 					posters[i].className += " loaded";
+					nonposters[i].className += " loaded";
 				}
 			} else {
 				// exit loop if there are no more posters

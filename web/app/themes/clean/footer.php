@@ -1,8 +1,11 @@
 
+	
+<?php if(!isset($_GET["iframe"]) || $_GET["iframe"] == false){ ?>
 	<footer id="footer" class="group">	
 		
 	</footer>
 </div>
+<?php } ?>
 
 <!-- Google Analytics 
 <script>
@@ -15,6 +18,7 @@ ga('create', 'XXXXXXXX', 'auto');
 ga('send', 'pageview');
 </script>-->
 <!-- Deferred CSS -->
+<?php if(!isset($_GET["iframe"]) || $_GET["iframe"] == false){ ?>
 <script type="text/javascript">
 	var stylesheet = document.createElement('link');
 	stylesheet.href = '/app/themes/clean/assets/css/main.css';
@@ -24,4 +28,5 @@ ga('send', 'pageview');
 </script>
 <noscript><link rel="stylesheet" href="/app/themes/clean/assets/css/main.css"></noscript>
 <?php wp_footer(); ?>
+<?php } ?>
 </body>
