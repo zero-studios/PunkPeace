@@ -431,16 +431,16 @@
         },
         {
             "name": "oscarotero/env",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/env.git",
-                "reference": "0819fd764ca19ab880b8d9ed7a95ae4910f98f20"
+                "reference": "0f676e41d758fa984806c32e27f0cf7afa63d8db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/env/zipball/0819fd764ca19ab880b8d9ed7a95ae4910f98f20",
-                "reference": "0819fd764ca19ab880b8d9ed7a95ae4910f98f20",
+                "url": "https://api.github.com/repos/oscarotero/env/zipball/0f676e41d758fa984806c32e27f0cf7afa63d8db",
+                "reference": "0f676e41d758fa984806c32e27f0cf7afa63d8db",
                 "shasum": ""
             },
             "require": {
@@ -469,7 +469,7 @@
             "keywords": [
                 "env"
             ],
-            "time": "2016-05-08T17:14:32+00:00"
+            "time": "2017-07-17T20:41:59+00:00"
         },
         {
             "name": "philippbaschke/acf-pro-installer",
@@ -777,10 +777,10 @@
         },
         {
             "name": "wpmudev/wp-smush-pro",
-            "version": "2.7.3.1",
+            "version": "2.7.4",
             "dist": {
                 "type": "zip",
-                "url": "https://premium.wpmudev.org/download/1582600288_wp-smush-pro-2.7.3.1.zip",
+                "url": "https://premium.wpmudev.org/download/515915747_wp-smush-pro-2.7.4.zip",
                 "reference": null,
                 "shasum": null
             },
