@@ -31,7 +31,7 @@ $secondary = array(
 	<div id="nav-one">
 		<?php wp_nav_menu($primary); ?>
 	</div>
-	<div id="logo"><h1><a href="/"><img src='/assets/images/logo_full.png' /></a></h1></div>
+	<div id="logo"><h1><a href="/"><img src='/app/uploads/2017/07/logo_full.svg' /></a></h1></div>
 	<div id="nav-two">
 		<?php wp_nav_menu($secondary); ?>
 	</div>

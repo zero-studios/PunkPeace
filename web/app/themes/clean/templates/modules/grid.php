@@ -45,10 +45,12 @@
 		<div class="info-frame group">
 			<h1><?php echo $poster->post_title; ?></h1>
 			<h2>
-			<?php if(isset($collaborators[0])){ foreach($collaborators as $index => $arr){ if($index !== 0){ ?>, <?php } if($arr["link"] != ""){ ?><a href="<?php echo $arr["link"]; ?>" target="_blank"><?php echo $arr["name"]; ?></a><?php } else { echo $arr["name"]; } } } ?>
+			<?php if(isset($collaborators[0])){ foreach($collaborators as $index => $arr){ if($index !== 0){ ?> <?php } if($arr["link"] != ""){ ?><?php echo $arr["name"]; ?><?php } else { echo $arr["name"]; } } } ?>
 			</h2>
+			<p>
+			<?php if(isset($collaborators[0])){ foreach($collaborators as $index => $arr){ if($index !== 0){ ?> <?php } if($arr["link"] != ""){ ?><a href="<?php echo $arr["link"]; ?>" target="_blank"><?php echo $arr["link"]; ?></a><?php } else { echo $arr["name"]; } } } ?>
 			<div class="expand"></div>
-		</div>
+		</p>
 	</article>
 
 	<?php } ?>

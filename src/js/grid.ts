@@ -78,3 +78,9 @@ function posterLoad(start, count){
 		}
 	}
 }
+
+//ADD MENU LINKS
+
+let aboutLink = document.querySelector('li#menu-item-13');
+
+aboutLink.innerHTML = 'ABOUT<span style="display: inline-block; transform: rotate(90deg)"	>?</span> '

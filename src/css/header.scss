@@ -17,18 +17,17 @@
 	width: 33.3%;
 	display: flex;
 	align-items: center;
+	ul li{
+		list-style: none;
+		color: white;
+		transform: rotate(-90deg);
+		font-weight: bold;
+	}
 }
 
 
 ul{
 	padding: 0;
-	
-	li{
-	list-style: none;
-	color: white;
-	transform: rotate(90deg);
-	font-weight: bold
-	}
 }
 
 #logo{

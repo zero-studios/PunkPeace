@@ -102,15 +102,18 @@
 		padding: 40px;
 		position: absolute;
 		width: 100%;
-
+		display: flex;
+		
 		h1{
 			font-size: 16px;
+			font-weight: bold;
 		}
 		h2{
 			font-size: 16px;
+			font-weight: bold;
 
 			a{
-
+				
 			}
 		}
 		.expand{
@@ -157,6 +160,41 @@
 						}
 					}
 				}
+			}
+		}
+	}
+	
+	article{
+		&:hover > .info-frame{
+			opacity: 1;
+		}
+		
+		.info-frame{
+			bottom: -140px;
+			color: $black;
+			justify-content: flex-end;
+			flex-direction: column;
+			z-index: 1;
+			opacity: 0;
+			transition: opacity .25s ease-out;
+		}
+		
+		&:nth-child(6n+1){
+			.info-frame{
+				
+			}
+		}
+		&:nth-last-child(4){
+			.info-frame{
+				bottom: 0;
+				left: 100%;
+			}
+		}
+		
+		&:nth-last-child(2){
+			.info-frame{
+				bottom: 0;
+				right: 100%;
 			}
 		}
 	}
