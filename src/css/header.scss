@@ -5,3 +5,51 @@
 	width: 100%;
 	z-index: 999;
 }
+
+#header #primary-nav{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#header #primary-nav div{
+	width: 33.3%;
+	display: flex;
+	align-items: center;
+}
+
+
+ul{
+	padding: 0;
+	
+	li{
+	list-style: none;
+	color: white;
+	transform: rotate(90deg);
+	font-weight: bold
+	}
+}
+
+#logo{
+	justify-content: center;
+}
+
+#nav-one{
+	justify-content: flex-start;
+	ul{
+		padding: 25px;
+	}
+}
+
+#nav-two{
+	justify-content: flex-end;
+	ul{
+		padding: 25px;
+	}
+}
+
+#mobile-toggle{
+	display: none;
+}
+
