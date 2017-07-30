@@ -63,6 +63,8 @@
 			padding: 40px;
 			position: absolute;
 			width: 100%;
+			z-index: 3;
+			transition: opacity .25s ease-out;
 
 			p{
 				font-weight: bold;
@@ -165,12 +167,21 @@
 	}
 	
 	article{
+		position: relative;
+		
 		&:hover > .info-frame{
 			opacity: 1;
 		}
 		
+		&:hover ~ .non-frame{
+			.content{
+				opacity: 0;
+			}
+		} 
+		
 		.info-frame{
-			bottom: -140px;
+			position: absolute;
+			bottom: 0px;
 			color: $black;
 			justify-content: flex-end;
 			flex-direction: column;
@@ -181,20 +192,38 @@
 		
 		&:nth-child(6n+1){
 			.info-frame{
-				
+				left: 100%;
 			}
 		}
+		
+		&:nth-child(6n+3){
+			.info-frame{
+				left: -100%;
+				text-align: right; 
+			}
+		}
+		
+		&:nth-child(6n+5){
+			.info-frame{
+				left: 100%
+			}
+		}
+		
 		&:nth-last-child(4){
 			.info-frame{
-				bottom: 0;
-				left: 100%;
+
+			}
+		}
+		
+		&:nth-last-child(3){
+			.info-frame{
+
 			}
 		}
 		
 		&:nth-last-child(2){
 			.info-frame{
-				bottom: 0;
-				right: 100%;
+
 			}
 		}
 	}

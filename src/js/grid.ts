@@ -83,4 +83,19 @@ function posterLoad(start, count){
 
 let aboutLink = document.querySelector('li#menu-item-13');
 
-aboutLink.innerHTML = 'ABOUT<span style="display: inline-block; transform: rotate(90deg)"	>?</span> '
+aboutLink.innerHTML = 'ABOUT<span style="display: inline-block; transform: rotate(90deg)"	>?</span> ';
+
+//FADE OUT CONTENT ON HOVER
+let article = document.getElementsByTagName('article');
+
+console.log(article);
+
+article[2].addEventListener('mouseover', function() {
+	article[1].style.opacity = "0"
+})
+
+article[2].addEventListener('mouseleave', function() {
+	article[1].style.opacity = "1"
+})
+
+
