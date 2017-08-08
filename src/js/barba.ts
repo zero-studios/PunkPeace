@@ -7,34 +7,63 @@ import * as Grid from "./grid";
 -------------------------------------------------- */
 const $container = <any>document.getElementById("container");
 const $header = <any>document.getElementById("header");
+const $menuItems = <any>document.getElementsByClassName('menu-item');
+const $infoFrames = <any>document.getElementsByClassName('info-frame');
+
 /*  Home View
 -------------------------------------------------- */
 const HomeView = Barba.BaseView.extend({
-	namespace: "home-page",
-	onEnterCompleted: function(){
-		Grid.init();
-
+    namespace: "home-page",
+    onEnterCompleted: function(){
+        Grid.init();
+        
+        Grid.punkPeaceHover();
+        
         $container.addEventListener("scroll", Grid.scrolling);
-	},
-	onLeave: function(){
-		$container.removeEventListener("scroll", Grid.scrolling);
-	}
+    },
+    onLeave: function(){
+        $container.removeEventListener("scroll", Grid.scrolling);
+    }
 });
 /*  Punk View
 -------------------------------------------------- */
 const PunkView = Barba.BaseView.extend({
     namespace: "punk",
     onEnter: function(){
+        
         $header.className += " reverse";
+        
+        Array.prototype.slice.call($menuItems).forEach(function(e) {
+            e.classList.add('punk');
+        })
+        
+        Array.prototype.slice.call($infoFrames).forEach(function(e) {
+            e.classList.add('punk');
+        })
+        
     },
     onEnterCompleted: function(){
+			
+				let article = document.getElementsByTagName('article');
+			
+				article[1].innerHTML = "<h1 class='content-title'>Punk<span class='lil-dash'>|</span></h1>";
+			
         Grid.init();
-
+        
         $container.addEventListener("scroll", Grid.scrolling);
     },
     onLeave: function(){
         $container.removeEventListener("scroll", Grid.scrolling);
         $header.classList.remove("reverse");
+        
+        Array.prototype.slice.call($menuItems).forEach(function(e) {
+            e.classList.remove('punk');
+        })
+        
+        Array.prototype.slice.call($infoFrames).forEach(function(e) {
+            e.classList.remove('punk');
+        })
+     
     }
 });
 /*  Peace View
@@ -43,13 +72,21 @@ const PeaceView = Barba.BaseView.extend({
     namespace: "peace",
     onEnterCompleted: function(){
         Grid.init();
-
+        
+        let article = document.getElementsByTagName('article');
+        article[1].innerHTML = "<h1 style='color: black' class='content-title'>Peace<span class='lil-dash'>|</span></h1>";
+        
         $container.addEventListener("scroll", Grid.scrolling);
     },
     onLeave: function(){
         $container.removeEventListener("scroll", Grid.scrolling);
     }
 });
+
+/* Poster View
+-------------------------------------------------- */
+
+
 /*  Barba Inits
 -------------------------------------------------- */
 HomeView.init();

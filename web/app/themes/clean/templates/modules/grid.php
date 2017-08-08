@@ -36,7 +36,7 @@
 		<?php } ?>
 	</article>
 	<?php } ?>
-
+	
 	<!-- Poster HTML -->
 	<article class="poster-frame group" data-url="<?php echo $link; ?>?iframe=true" data-title="<?php echo $poster->post_title; ?>" data-contributors="<?php echo json_encode($collaborators); ?>">
 		<div class="iframe group">
@@ -54,6 +54,8 @@
 	</article>
 
 	<?php } ?>
-
-	<article class="non-frame group hidden"></article>
-</div>
+	
+	
+<article class="non-frame group hidden"></article></div>
+	
+	

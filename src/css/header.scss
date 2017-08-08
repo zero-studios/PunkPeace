@@ -20,8 +20,13 @@
 	ul li{
 		list-style: none;
 		color: white;
-		transform: rotate(-90deg);
 		font-weight: bold;
+		text-transform: uppercase;
+		display: flex;
+		
+		&.punk{
+			color: black !important;
+		}
 	}
 }
 
@@ -32,12 +37,33 @@ ul{
 
 #logo{
 	justify-content: center;
+	
+	a small{
+		padding:0px 30px;
+		font-style: italic;
+		font-size: 10px;
+		opacity: 0;
+		transition: opacity .25s ease-out;
+	}
+	
+	&:hover > a small{
+			opacity: 1;
+			cursor: pointer;
+		}
 }
 
 #nav-one{
 	justify-content: flex-start;
 	ul{
 		padding: 25px;
+		li{
+			transform: rotate(-90deg);
+			&:nth-child(1){
+				a{
+					padding-top: 5px;
+				}
+			}
+		}
 	}
 }
 
@@ -45,8 +71,17 @@ ul{
 	justify-content: flex-end;
 	ul{
 		padding: 25px;
+		li{
+			transform: rotate(90deg);
+			&:nth-child(1){
+				a{
+					padding-bottom: 5px;
+				}
+			}
+		}
 	}
 }
+
 
 #mobile-toggle{
 	display: none;

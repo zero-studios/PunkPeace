@@ -10,15 +10,20 @@ export const init = function(){
 
 	let offset = 3; // posters to load at a time
 	let posters = document.getElementsByClassName("poster-frame");
+	let article = document.getElementsByTagName('article');
 
 	if(Func.getViewport().width <= 600){
 		offset = 1;
 	} else if(Func.getViewport().width > 600 && Func.getViewport().width <= 1100){
 		offset = 2;
 	}
-
+    
 	// Load first block
 	posterLoad(0, offset);
+    
+	// Fade header content on poster hover
+	fadeHeaderContent(article[0], article[2]);
+	
 }
 /*  Scroll
 	
@@ -79,23 +84,64 @@ function posterLoad(start, count){
 	}
 }
 
-//ADD MENU LINKS
 
-let aboutLink = document.querySelector('li#menu-item-13');
+//FADE OUT CENTER INTRO TEXT ON HOVER OF POSTERS 1 & 2
+function fadeHeaderContent(...elems) {
+    
+    let article = document.getElementsByTagName('article');
+	
+    elems.forEach(function(e){
+        
+        e.addEventListener('mouseover', function() {
+            article[1].style.opacity = '0';
+        })
+        
+        e.addEventListener('mouseleave', function() {
+            article[1].style.opacity = '1';
+        })
+        
+    })
+	
+}
 
-aboutLink.innerHTML = 'ABOUT<span style="display: inline-block; transform: rotate(90deg)"	>?</span> ';
+//HOVER STATES FOR PUNK & PEACE LINK IN CENTER INTRO TEXT
+export const punkPeaceHover = () => {
+    
+		let gridWrapper = document.getElementsByClassName('grid-wrapper')[0];
+    let punkLink = document.getElementById('punk-link');
+    let peaceLink = document.getElementById('peace-link');
+    let midContent = document.querySelector('.grid-wrapper .non-frame .content p');
+    
+	  //HOVER on PUNK  
+    punkLink.addEventListener('mouseenter', () => {
+        gridWrapper.classList.add('alt');
+        midContent.classList.add('punkHover');
+        peaceLink.classList.add('punkHover');
+				midContent.classList.remove('peaceHover');
+				punkLink.classList.remove('peaceHover');
+    })
+	
+		midContent.addEventListener('mouseleave', () => {
+        gridWrapper.classList.remove('alt');
+        midContent.classList.remove('punkHover');
+        peaceLink.classList.remove('punkHover');
+		})
 
-//FADE OUT CONTENT ON HOVER
-let article = document.getElementsByTagName('article');
-
-console.log(article);
-
-article[2].addEventListener('mouseover', function() {
-	article[1].style.opacity = "0"
-})
-
-article[2].addEventListener('mouseleave', function() {
-	article[1].style.opacity = "1"
-})
-
-
+	
+    //HOVER on PEACE
+    peaceLink.addEventListener('mouseenter', () => {
+        midContent.classList.add('peaceHover');
+				punkLink.classList.add('peaceHover');
+				gridWrapper.classList.remove('alt');
+        midContent.classList.remove('punkHover');
+        peaceLink.classList.remove('punkHover');
+    })
+	
+		midContent.addEventListener('mouseleave', () => {
+        midContent.classList.remove('peaceHover');
+				punkLink.classList.remove('peaceHover');
+    })
+	
+	
+    
+}
