@@ -80,7 +80,7 @@ if(!shopify && src.indexOf(".svg") <= -1) src = `${src}&w=${(closestSize < minWi
 if(shopify && src.indexOf(".svg") <= -1) src = `${shopifyProcessImage(src, (closestSize < minWidth ? minWidth : closestSize))}`;
 
 /** Vercel image cache */
-if(!dev && src.indexOf(".svg") <= -1) {
+if(!dev && src.indexOf(".svg") <= -1 && !shopify) {
 
 	placeholderSrc = `/_vercel/image?url=${encodeURIComponent(`${src}`)}&w=20&q=${quality}`;
 	srcSet = widths.map(size => vercelImageOutput(src, srcMobile, size));
