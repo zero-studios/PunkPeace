@@ -1,0 +1,28 @@
+{
+  "id": "site",
+  "label": "Site",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading5"
+        }
+      },
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "landing_page": {
+        "type": "Link",
+        "config": {
+          "label": "Landing Page",
+          "select": "document",
+          "customtypes": ["pages"]
+        }
+      }
+    }
+  }
+}

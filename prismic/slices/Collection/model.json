@@ -1,0 +1,48 @@
+{
+  "id": "collection",
+  "type": "SharedSlice",
+  "name": "Collection",
+  "description": "Collection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "collection_link": {
+          "type": "Link",
+          "config": {
+            "label": "Collection Link",
+            "placeholder": "Enter Collection URL",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "collection_handle": {
+          "type": "Text",
+          "config": {
+            "label": "Collection Handle",
+            "placeholder": "OR enter Collection Handle"
+          }
+        },
+        "limit_products": {
+          "type": "Boolean",
+          "config": {
+            "label": "Limit Products",
+            "placeholder_false": "Show All Products",
+            "placeholder_true": "Show Limited Products",
+            "default_value": false
+          }
+        },
+        "visible_products": {
+          "type": "Number",
+          "config": { "label": "Visible Products", "placeholder": "4" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

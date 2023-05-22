@@ -1,0 +1,341 @@
+/**
+ * Typography styles
+ */
+
+p,
+.p,
+.body,
+address {
+	font-family: $body;
+	font-weight: 400;
+	font-size: em(16px);
+	margin: 0 0 18px;
+
+	@include desktop {
+		font-size: em(18px);
+		margin: 0 0 30px;
+	}
+}
+
+.pm {
+	font-size: em(16px);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: $display;
+	font-weight: 700;
+	letter-spacing: 0px;
+	line-height: 1;
+	margin: 0 0 18px;
+
+	@include desktop {
+		margin: 0 0 30px;
+	}
+}
+
+h1,
+.h1 {
+	font-size: em(40px);
+	// margin-left: -3px; // Indent Correction
+
+	@include desktop {
+		font-size: em(75px);
+		// margin-left: -5px; // Indent Correction
+	}
+}
+
+.force-mobile h1,
+.force-mobile .h1,
+.h1m {
+	font-size: em(40px);
+	// margin-left: -2px; // Indent Correction
+}
+
+h2,
+.h2 {
+	font-size: em(30px);
+
+	@include desktop {
+		font-size: em(60px);
+		// margin-left: -4px; // Indent Correction
+	}
+}
+
+.force-mobile h2,
+.force-mobile .h2,
+.h2m {
+	font-size: em(30px);
+	// margin-left: -2px; // Indent Correction
+}
+
+h3,
+.h3 {
+	font-size: em(32px);
+	// margin-left: -1px; // Indent Correction
+
+	@include desktop {
+		font-size: em(60px);
+		// margin-left: -3px; // Indent Correction
+	}
+}
+
+.force-mobile h3,
+.force-mobile .h3,
+.h3m {
+	font-size: em(32px);
+	// margin-left: -1px; // Indent Correction
+}
+
+h4,
+.h4 {
+	font-size: em(32px);
+	// margin-left: -1px; // Indent Correction
+
+	@include desktop {
+		font-size: em(40px);
+		// margin-left: -2px; // Indent Correction
+	}
+}
+
+.force-mobile h4,
+.force-mobile .h4,
+.h4m {
+	font-size: em(32px);
+	// margin-left: -1px; // Indent Correction
+}
+
+h5,
+.h5 {
+	font-size: em(24px);
+	// margin-left: -1px; // Indent Correction
+}
+
+.force-mobile h5,
+.force-mobile .h5,
+.h5m {
+	font-size: em(24px);
+	// margin-left: -1px; // Indent Correction
+}
+
+h6,
+.h6 {
+	font-size: em(16px);
+}
+
+.force-mobile h6,
+.force-mobile .h6,
+.h6m {
+	font-size: em(16px);
+}
+
+.eyebrow,
+.eyebrow-wrapper > * {
+	font-size: em(13px);
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	margin: 0 0 18px;
+	text-transform: uppercase;
+
+	@include desktop {
+		margin: 0 0 30px;
+	}
+}
+
+.eyebrow-wrapper > * {
+	font-weight: 400;
+}
+
+.split-sizing {
+	font-size: em(16px);
+
+	@include desktop {
+		font-size: em(22px);
+	}
+}
+
+.force-mobile .split-sizing {
+	font-size: em(16px);
+}
+
+
+.text-stroke {
+	text-shadow: -1px 1px 0 var(--text-shadow, $black), 1px 1px 0  var(--text-shadow, $black), 1px -1px 0  var(--text-shadow, $black), -1px -1px 0  var(--text-shadow, $black);
+}
+
+.reveal-line {
+	overflow: hidden;
+}
+
+/**
+* WYSIWYG style wrapper to capture dynamically entered content
+*/
+.richtext {
+	max-width: var(--blog-content-width, 1024px);
+	width: 100%;
+
+	> * {
+		color: currentColor;
+	}
+
+	p:empty {
+		display: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+
+	}
+
+	h1 {
+
+	}
+
+	h2 {
+
+	}
+
+	h3 {
+
+	}
+
+	h4 {
+
+	}
+
+	h5 {
+
+	}
+
+	h6 {
+
+	}
+
+	p,
+	small {
+
+	}
+
+	p {
+
+	}
+
+	p > a {
+		text-decoration: underline;
+	}
+
+	small {
+
+	}
+
+	a:not(.btn) {
+		text-decoration: underline;
+	}
+
+	> ol,
+	> ul {
+
+		> :last-child {
+
+		}
+	}
+
+	ol,
+	ul {
+		padding-left: var(--list-style-indent, 30px);
+		margin: 0 0 18px;
+
+		@include desktop {
+			margin: 0 0 30px;
+		}
+
+		li {
+
+		}
+	}
+
+	> ol {
+		list-style: decimal;
+	}
+
+	> ul {
+		list-style: disc;
+	}
+
+	blockquote {
+		background: currentColor;
+		border-left: 4px solid currentColor;
+		margin-bottom: var(--leading-body, 24px);
+		padding: 16px 20px;
+		quotes: auto;
+
+		&:before {
+			color: currentColor;
+			content: open-quote;
+			font-size: 4rem;
+		}
+
+		p {
+			display: inline;
+			font-size: 1.4rem;
+		}
+	}
+
+	caption {
+
+	}
+
+	table {
+		border: 1px solid currentColor;
+		border-collapse: collapse;
+		color: currentColor;
+		margin-bottom: var(--leading-body, 24px);
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;
+
+		thead {
+
+		}
+
+		tbody {
+
+		}
+
+		tr {
+
+		}
+
+		th,
+		td {
+			border: 1px solid currentColor;
+			padding: 8px 12px;
+		}
+
+		th {
+
+		}
+
+		td {
+
+		}
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}

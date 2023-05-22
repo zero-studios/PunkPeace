@@ -1,0 +1,83 @@
+.cx,
+.cy,
+.cb,
+.ct,
+.cr,
+.cl,
+.ca {
+	width: 100%;
+}
+
+/* --- X-axis --- */
+.cx {
+	padding-left: var(--site-gutter-x);
+	padding-right: var(--site-gutter-x);
+}
+
+/* --- X-axis Halved --- */
+.cx-1\/2 {
+	padding-left: calc(var(--site-gutter-x) / 2);
+	padding-right: calc(var(--site-gutter-x) / 2);
+}
+
+/* --- Y-axis --- */
+.cy {
+	padding-top: var(--site-gutter-y);
+	padding-bottom: var(--site-gutter-y);
+}
+
+/* --- Y-axis Halved --- */
+.cy-1\/2 {
+	padding-top: calc(var(--site-gutter-y) / 2);
+	padding-bottom: calc(var(--site-gutter-y) / 2);
+}
+
+/* --- Bottom --- */
+.cb {
+	padding-bottom: var(--site-gutter-y);
+}
+
+/* --- Bottom Halved --- */
+.cb-1\/2 {
+	padding-bottom: calc(var(--site-gutter-y) / 2);
+}
+
+/* --- Top --- */
+.ct {
+	padding-top: var(--site-gutter-y);
+}
+
+/* --- Top Halved --- */
+.ct-1\/2 {
+	padding-top: calc(var(--site-gutter-y) / 2);
+}
+
+/* --- Right --- */
+.cr {
+	padding-right: var(--site-gutter-x);
+}
+
+/* --- Right Halved --- */
+.cr-1\/2 {
+	padding-right: calc(var(--site-gutter-x) / 2);
+}
+
+/* --- Left --- */
+.cl {
+	padding-left: var(--site-gutter-x);
+}
+
+/* --- Left Halved --- */
+.cl-1\/2 {
+	padding-left: calc(var(--site-gutter-x) / 2);
+}
+
+/* --- All --- */
+.ca {
+	padding: var(--site-gutter-y) var(--site-gutter-x);
+}
+
+/* --- All Halved --- */
+.ca-1\/2 {
+	padding: calc(var(--site-gutter-y) / 2) calc(var(--site-gutter-x) / 2);
+}

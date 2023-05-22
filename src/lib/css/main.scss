@@ -1,0 +1,65 @@
+@import "./_abstracts/variables";
+@import "./_abstracts/mixins";
+@import "./_abstracts/functions";
+@import "./settings";
+
+/**
+ * Utilities
+ */
+@import "./_utilities/buttons";
+@import "./_utilities/forms";
+@import "./_utilities/gutters";
+@import "./_utilities/grid";
+@import "./_utilities/scrollbar";
+@import "./_utilities/typeography";
+@import "./_utilities/a11y";
+
+/**
+ * Components
+ */
+@import "./_components/layout";
+
+/**
+ * Core Styles
+ */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+body > .body-content {
+	height: 100%;
+	width: 100%;
+}
+
+svg {
+	max-width: 100%;
+	height: auto;
+
+	path {
+		shape-rendering: geometricPrecision;
+	}
+}
+
+img {
+	height: auto;
+	width: 100%;
+}
+
+.slice-section {
+	position: relative;
+}
+
+.locked-scroll {
+	overflow: hidden;
+	height: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
+}

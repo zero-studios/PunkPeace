@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+/prismic/node_modules
+/build
+/.svelte-kit
+/.vercel
+/jsdoc
+/package
+#.env
+#.env.*
+!.env.example

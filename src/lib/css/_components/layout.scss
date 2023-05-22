@@ -1,0 +1,17 @@
+.wrapper {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	margin: 0 auto;
+	position: relative;
+
+	.inverse {
+		background-color: var(--bg-inverse);
+		color: var(--text-inverse);
+	}
+}
+
+.true-center {
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}

@@ -1,0 +1,27 @@
+{
+  "id": "module_group",
+  "type": "SharedSlice",
+  "name": "ModuleGroup",
+  "description": "ModuleGroup",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "group": {
+          "type": "Link",
+          "config": {
+            "label": "Group",
+            "select": "document",
+            "customtypes": ["modules"]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

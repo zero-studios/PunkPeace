@@ -1,0 +1,28 @@
+/* stylelint-disable selector-class-pattern */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+
+	:root {
+		--theme-primary-background: #222222;
+		--theme-primary-text: #FFFFFF;
+		--theme-primary-accent: #B2B2B2;
+		--theme-secondary-background: #FEEA3B;
+		--theme-secondary-text: #222222;
+		--theme-secondary-accent: #222222;
+		--button-primary-background: #B2B2B2;
+		--button-primary-text: #222222;
+		--button-secondary-background: #222222;
+		--button-secondary-text: #B2B2B2;
+	}
+}
+
+@layer components {
+
+}
+
+@layer utilities {
+
+}

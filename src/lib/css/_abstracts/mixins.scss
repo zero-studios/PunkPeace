@@ -1,0 +1,90 @@
+/**
+* Mixins
+*
+* This file is to store the minimum css needed to
+* render the page upon first load. Anything that
+* javascript needs to measure will need to be set
+* in this file as well, for example: height or width
+* measurements.
+*/
+
+/**
+* Breakpoints
+*
+* The approach here is to apply styles mobile first,
+* as true breakpoints
+*/
+@mixin screen-min-xs {
+	@media screen and (min-width: $bp-xs) {
+		@content;
+	}
+}
+
+@mixin screen-min-sm {
+	@media screen and (min-width: $bp-sm) {
+		@content;
+	}
+}
+
+@mixin screen-min-md {
+	@media screen and (min-width: $bp-md) {
+		@content;
+	}
+}
+
+@mixin screen-min-dk {
+	@media screen and (min-width: $bp-dk) {
+		@content;
+	}
+}
+
+@mixin screen-min-lg {
+	@media screen and (min-width: $bp-lg) {
+		@content;
+	}
+}
+
+@mixin screen-min-xl {
+	@media screen and (min-width: $bp-xl) {
+		@content;
+	}
+}
+
+@mixin screen-min-2xl {
+	@media screen and (min-width: $bp-2xl) {
+		@content;
+	}
+}
+
+@mixin screen-min-3xl {
+	@media screen and (min-width: $bp-3xl) {
+		@content;
+	}
+}
+
+@mixin screen-min-4xl {
+	@media screen and (min-width: $bp-4xl) {
+		@content;
+	}
+}
+
+/**
+* Media Queries
+*/
+@mixin desktop {
+	@media screen and (min-width: $bp-dk) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (max-width: $bp-md) {
+		@content;
+	}
+}
+
+// usage: @mixin size(100%, auto);
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}

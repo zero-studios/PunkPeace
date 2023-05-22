@@ -1,0 +1,53 @@
+{
+	"source": {
+		"include": ["src/lib", "src/routes/api", "package.json", "README.md"],
+		"includePattern": ".(js|svelte)$",
+		"excludePattern": "(node_modules/|jsdoc/)"
+	},
+	"plugins": [
+		"plugins/markdown",
+		"plugins/commentsOnly",
+		"node_modules/better-docs/component",
+		"node_modules/jsdoc-tsimport-plugin/index.js"
+	],
+	"opts": {
+		"encoding": "utf8",
+		"readme": "./README.md",
+		"destination": "jsdoc/",
+		"recurse": true,
+		"verbose": true,
+		"template": "node_modules/clean-jsdoc-theme",
+		"theme_opts": {
+			"default_theme": "dark",
+			"includeFilesListInHomepage": true,
+			"sections": [
+				"Classes",
+				"Modules",
+				"Externals",
+				"Events",
+				"Namespaces",
+				"Mixins",
+				"Tutorials",
+				"Interfaces",
+				"Global"
+			]
+		}
+	},
+	"markdown": {
+		"hardwrap": false,
+		"idInHeadings": true
+	},
+	"sourceType": "module",
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": [
+			"jsdoc"
+		]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"monospaceLinks": false,
+		"search": true,
+		"showInheritedInNav": true
+	}
+}

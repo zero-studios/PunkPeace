@@ -1,0 +1,44 @@
+
+.theme-primary {
+
+	a.btn:active,
+	a.btn:focus {
+		outline: 2px solid var(--button-primary-background, $black);
+		outline-offset: 2px;
+	}
+}
+
+.theme-secondary {
+
+	a.btn:active,
+	a.btn:focus {
+		outline: 2px solid var(--button-secondary-background, $black);
+		outline-offset: 2px;
+	}
+}
+
+header .accent {
+	outline: 2px solid transparent;
+	outline-offset: 4px;
+}
+
+header .accent:active,
+header .accent:focus {
+	outline-color: currentColor;
+}
+
+footer li a:focus {
+	outline: 0 none;
+	font-weight: 700;
+	position: relative;
+
+	// &:after {
+	// 	background-color: currentColor;
+	// 	bottom: -2px;
+	// 	content: "";
+	// 	height: 2px;
+	// 	left: 0;
+	// 	position: absolute;
+	// 	width: 100%;
+	// }
+}

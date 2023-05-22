@@ -1,0 +1,3 @@
+STOREFRONT PAGE
+
+<slot />

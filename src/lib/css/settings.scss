@@ -1,0 +1,104 @@
+/**
+ * Settings
+ */
+
+/** Screens Under 480 */
+:root {
+	--app-gutter: var(--app-gutter-mobile, 20px);
+	--blog-content-width: 1060px;
+	--color-transparent: transparent;
+	--font-body: Helvetica, "Helvetica Neue", Arial, sans-serif;
+	--font-display: Helvetica, "Helvetica Neue", Arial, sans-serif;
+	--grid-columns: 12;
+	--grid-gutter-x: var(--grid-gutter-mobile, 20px);
+	--grid-gutter-y: var(--grid-gutter-mobile, 20px);
+	--site-gutter: var(--site-gutter-small-mobile, 15px);
+	--site-gutter-x: var(--site-gutter-small-mobile, 15px);
+	--site-gutter-y: var(--site-gutter-small-mobile, 30px);
+}
+
+/** Screens 480+ */
+@include screen-min-xs {
+
+	:root {
+		--site-gutter: var(--site-gutter-mobile, 30px);
+		--site-gutter-x: var(--site-gutter-small-mobile, 30px);
+		--site-gutter-y: var(--site-gutter-small-mobile, 30px);
+	}
+}
+
+/** Screens 640+ */
+@include screen-min-sm {
+
+	:root {
+
+	}
+}
+
+/** Screens 768+ */
+@include screen-min-md {
+
+	:root {
+
+	}
+}
+
+/** Screens 769+ (DESKTOP+) */
+@include screen-min-dk {
+
+	:root {
+		--app-gutter: var(--app-gutter-mobile, 30px);
+		--grid-gutter-x: var(--grid-gutter-desktop, 30px);
+		--grid-gutter-y: var(--grid-gutter-desktop, 30px);
+	}
+
+	.force-mobile {
+		--grid-gutter-x: var(--grid-gutter-mobile, 20px);
+		--grid-gutter-y: var(--grid-gutter-mobile, 20px);
+		--site-gutter: var(--site-gutter-mobile, 30px);
+		--site-gutter-x: var(--site-gutter-small-mobile, 30px);
+		--site-gutter-y: var(--site-gutter-small-mobile, 60px);
+	}
+}
+
+/** Screens 1024+ */
+@include screen-min-lg {
+
+	:root {
+		--site-gutter: var(--site-gutter-tablet, 60px);
+		--site-gutter-x: var(--site-gutter-small-mobile, 60px);
+		--site-gutter-y: var(--site-gutter-small-mobile, 60px);
+	}
+}
+
+/** Screens 1280+ */
+@include screen-min-xl {
+
+	:root {
+		--app-gutter: var(--app-gutter-mobile, 40px);
+	}
+}
+
+/** Screens 1440+ */
+@include screen-min-2xl {
+
+	:root {
+		// --site-gutter: var(--site-gutter-desktop, 90px);
+	}
+}
+
+/** Screens 1680+ */
+@include screen-min-3xl {
+
+	:root {
+
+	}
+}
+
+/** Screens 1920+ */
+@include screen-min-4xl {
+
+	:root {
+
+	}
+}
