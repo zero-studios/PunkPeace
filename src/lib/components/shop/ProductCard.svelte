@@ -26,7 +26,7 @@ let productChecked = false;
 </script>
 
 <article on:mouseenter={() => { visible = true; }} on:mouseleave={() => { visible = false; }}>
-	<div class="relative">
+	<div class="relative rounded-[10px] overflow-hidden">
 		<a class="block relative w-full h-0 aspect-square pb-[100%]" href="/products/{product.handle}/" aria-label="{product.title}">
 			{#key image}
 				{#if image}
