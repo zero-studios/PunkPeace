@@ -31,6 +31,7 @@ export let width = 2048;
 export let type = "responsive";
 export let placeholder = false;
 export let sizes = null;
+export let shopify = false;
 
 let minWidth = 240;
 let widths = [minWidth, 360, 480, 640, 800, 1040, 1280, 1540, 1880];
@@ -48,10 +49,26 @@ widths = widths.filter(v => v <= width);
 
 /** Process images from Prismic */
 const imageOutput = (source, mobileSource, size) => ((size > breakpoint) ? `${source}&w=${size} ${size}w` : `${mobileSource}&w=${size} ${size}w`);
+const shopifyProcessImage = (src, width) => {
+
+	let srcArray = src.split(".");
+	let lastIndex = srcArray.pop();
+
+	src = srcArray.join(".");
+
+	return `${src}_${width}x.${lastIndex}`;
+};
+const shopifyImageOutput = (source, mobileSource, size) => ((size > breakpoint) ? `${shopifyProcessImage(source, size)} ${size}w` : `${shopifyProcessImage(mobileSource, size)} ${size}w`);
 const vercelImageOutput = (source, mobileSource, size) => ((size > breakpoint) ? `/_vercel/image?url=${encodeURIComponent(source + `&w=${size}`)}&w=${size}&q=${quality} ${size}w` : `/_vercel/image?url=${encodeURIComponent(mobileSource + `&w=${size}`)}&w=${size}&q=${quality} ${size}w`);
 
 let placeholderSrc = `${src}&w=20`;
 let srcSet = widths.map(size => imageOutput(src, srcMobile, size));
+
+if(shopify === true) {
+	placeholderSrc = shopifyProcessImage(src, 20);
+	srcSet = widths.map(size => shopifyImageOutput(src, srcMobile, size));
+}
+
 let closestSize = minWidth;
 
 if(widths.length > 0) {
@@ -59,7 +76,8 @@ if(widths.length > 0) {
 }
 
 /** Get closest original src */
-if(src.indexOf(".svg") <= -1) src = `${src}&w=${(closestSize < minWidth ? minWidth : closestSize)}`;
+if(!shopify && src.indexOf(".svg") <= -1) src = `${src}&w=${(closestSize < minWidth ? minWidth : closestSize)}`;
+if(shopify && src.indexOf(".svg") <= -1) src = `${shopifyProcessImage(src, (closestSize < minWidth ? minWidth : closestSize))}`;
 
 /** Vercel image cache */
 if(!dev && src.indexOf(".svg") <= -1) {
