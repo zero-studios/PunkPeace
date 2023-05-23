@@ -7,6 +7,10 @@ let localUser = (browser) ? JSON.parse(localStorage.getItem("user")) : null;
 export const user = localStore("user", {
 	data: {},
 	shop: {
+		cart: {
+			id: null,
+			obj: {}
+		},
 		size: (localUser?.shop?.size) ? localUser.shop.size : "M"
 	},
 	site: {

@@ -1,6 +1,6 @@
 <script>
 import Debug from "$lib/components/Debug.svelte";
-import AddToCart from "$lib/components/shop/AddToCart.svelte";
+import ProductHero from "$lib/components/shop/ProductHero.svelte";
 import { JsonLd } from "svelte-meta-tags";
 
 export let data;
@@ -25,7 +25,7 @@ let productSchema = {
 	"@context" : "http://schema.org",
 	"@type": "Product",
 	"name": `${data.product.seo.title || data.product.title}`,
-	"url": encodeURIComponent(`https://store.dropout.tv/collections/${data.product.handle}/`),
+	"url": encodeURIComponent(`https://punkpeace.world/products/${data.product.handle}/`),
 	"description": `${data.product.seo.description || data.product.description}`,
 	"image": (data.product?.image?.url ? encodeURIComponent(data.product?.image?.url) : null),
 	"brand": {
@@ -36,7 +36,7 @@ let productSchema = {
 		"@type": "Offer",
 		"price": parseFloat(v.node.price.amount),
 		"priceCurrency": "USD",
-		"url": encodeURIComponent(`https://store.dropout.tv/products/${data.product.handle}/?variant=${v.node.id.replace("gid://shopify/ProductVariant/", "")}`),
+		"url": encodeURIComponent(`https://punkpeace.world/products/${data.product.handle}/?variant=${v.node.id.replace("gid://shopify/ProductVariant/", "")}`),
 		"name": v.node.title,
 		"sku": v.node.sku,
 		"inventoryLevel": v.node.quantityAvailable,
@@ -53,7 +53,6 @@ let productSchema = {
 <Debug object={data.product} />
 
 {#key data.product.id}
-	{data.product.title}
-	<AddToCart product={data.product} selectedVariant={data.variant} />
+	<ProductHero product={data.product} variant={data.variant} />
 	<JsonLd schema={productSchema} output={"body"} />
 {/key}

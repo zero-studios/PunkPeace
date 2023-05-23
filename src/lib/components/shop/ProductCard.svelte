@@ -8,8 +8,8 @@
 import ResponsiveImage from "$lib/components/elements/ResponsiveImage.svelte";
 import Debug from "$lib/components/Debug.svelte";
 import AddToCart from "$lib/components/shop/AddToCart.svelte";
+import PriceDisplay from "$lib/components/shop/PriceDisplay.svelte";
 import { user } from "$lib/stores/user";
-	import PriceDisplay from "./PriceDisplay.svelte";
 
 /** inline variable description */
 export let product;
@@ -25,6 +25,7 @@ $: if(imageUrl && imageUrl !== image) {
 let visible = false;
 let productChecked = false;
 let firstSelectedOrAvailable = product.variants.edges.find((v) => { return v.node.availableForSale === true; });
+let colorDesc = (typeof product?.metafields[0] === "object") ? product?.metafields?.find((m) => m?.key === "color_description") : null;
 let soldOut = false;
 
 if(!firstSelectedOrAvailable) {
@@ -55,8 +56,8 @@ if(!firstSelectedOrAvailable) {
 			{/if}
 		</p>
 	</div>
-	{#if firstSelectedOrAvailable.node.title !== "Default Title"}
-		<p class="text-[length:10px] pt-[5px] !mb-0">{firstSelectedOrAvailable.node.title}</p>
+	{#if colorDesc}
+		<p class="text-[length:10px] pt-[5px] !mb-0">{colorDesc.value}</p>
 	{/if}
 	<!-- <AddToCart product={product} hideVariants={true} bind:image={imageUrl} defaultImage={product.featuredImage.url} /> -->
 </article>

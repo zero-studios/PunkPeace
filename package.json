@@ -47,7 +47,7 @@
 		"mongodb": "^5.0.1",
 		"svelte-feather-icons": "^4.0.0",
 		"svelte-inview": "^3.0.2",
-		"swiper": "^8.1.1",
+		"swiper": "^9.3.2",
 		"vanilla-lazyload": "^17.8.3"
 	},
 	"type": "module"

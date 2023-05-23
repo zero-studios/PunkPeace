@@ -60,6 +60,10 @@ export async function load({ fetch, params, parent, request, url }) {
 							}
 							handle
 							id
+							metafields(identifiers: [{ namespace: "custom", key: "color_description" }]) {
+								key
+								value
+							}
 							options(first: 5) {
 								id
 								name

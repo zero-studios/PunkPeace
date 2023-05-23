@@ -7,12 +7,12 @@ import { shopifyStorefrontQuery } from "$lib/integrations/shopify/client";
 export async function load({ cookies, fetch, params, parent, url }) {
 
 	const data = await parent();
-	const uid = params.uid;
+	const handle = params.handle;
 	const searchParams = url.searchParams;
 
 	let productRequest = await shopifyStorefrontQuery(fetch, `
 		{
-			product(handle: "${uid}") {
+			product(handle: "${handle}") {
 				availableForSale
 				collections(first: 1) {
 					edges {
@@ -37,6 +37,10 @@ export async function load({ cookies, fetch, params, parent, url }) {
 					}
 				}
 				isGiftCard
+				metafields(identifiers: [{ namespace: "custom", key: "color_description" }]) {
+					key
+					value
+				}
 				options(first: 5) {
 					id
 					name

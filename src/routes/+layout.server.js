@@ -41,8 +41,13 @@ export async function load({ cookies, fetch, params, request, url }) {
 		throw error(400, err.message);
 	});
 
+	/**
+	 * ecommerce
+	 */
+	let cart = cookies.get("cart");
+
 	return {
 		page: response?.data?.landing_page?.data,
-		host: host
+		cart: cart
 	};
 }

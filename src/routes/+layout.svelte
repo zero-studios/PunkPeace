@@ -32,6 +32,26 @@ afterNavigate(() => {
 
 onMount(() => {
 
+	/** --- async Check cart --- */
+	if(data.cart) {
+
+		$user.shop.cart.id = data.cart;
+
+		fetch("/api/shop/cart", {
+			method: "POST",
+			body: JSON.stringify({
+				id: data.cart
+			})
+		}).then(text => text.json()).then(json => {
+
+			console.log(json.cart);
+
+			$user.shop.cart.obj = json.cart;
+
+		}).catch((error) => {
+			console.log("check cart errors", error);
+		});
+	}
 });
 </script>
 
