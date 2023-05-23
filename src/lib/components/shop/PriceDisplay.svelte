@@ -7,6 +7,6 @@ export let comparePrice = null;
 </script>
 
 {#if comparePrice}
-	<del>${format(comparePrice)}</del>
+	<del>${format(comparePrice).replace(".00", "")}</del>
 {/if}
-${format(price)}
+${format(price).replace(".00", "")}

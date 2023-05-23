@@ -37,6 +37,15 @@
             "default_value": false
           }
         },
+        "hide_count": {
+          "type": "Boolean",
+          "config": {
+            "label": "Hide Count",
+            "placeholder_false": "Show Count",
+            "placeholder_true": "Hide Count",
+            "default_value": false
+          }
+        },
         "visible_products": {
           "type": "Number",
           "config": { "label": "Visible Products", "placeholder": "4" }

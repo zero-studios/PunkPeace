@@ -34,7 +34,13 @@ export async function POST({ fetch, params, parent, request, url }) {
 				id
 				image {
 					altText
+					height
 					url
+					width
+				}
+				metafields(identifiers: [{ namespace: "custom", key: "drop_number" }]) {
+					key
+					value
 				}
 				products(${filterString}, sortKey: ${sort}) {
 					edges {
@@ -78,7 +84,7 @@ export async function POST({ fetch, params, parent, request, url }) {
 										}
 										quantityAvailable
 										requiresShipping
-										sellingPlanAllocations(first: 10) {
+										sellingPlanAllocations(first: 1) {
 											edges {
 												node {
 													checkoutChargeAmount {
@@ -121,6 +127,10 @@ export async function POST({ fetch, params, parent, request, url }) {
 						hasPreviousPage
 						startCursor
 					}
+				}
+				seo {
+					title
+					description
 				}
 				title
 			}

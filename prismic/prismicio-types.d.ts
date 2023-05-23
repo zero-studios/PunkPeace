@@ -265,6 +265,17 @@ interface CollectionSliceDefaultPrimary {
    */
   limit_products: prismic.BooleanField;
   /**
+   * Hide Count field in *Collection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: collection.primary.hide_count
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  hide_count: prismic.BooleanField;
+  /**
    * Visible Products field in *Collection → Primary*
    *
    * - **Field Type**: Number

@@ -8,6 +8,7 @@ import { formatCartLines } from "$js/helpers/cart";
 export let product;
 export let image = null;
 export let defaultImage = null;
+export let hideVariants = false;
 export let selectedVariant;
 
 let defaultSize = $user.shop.size || "M";
@@ -130,7 +131,7 @@ $: variantId = selected.variant?.node?.id || null;
 <!-- <Debug object={selected.options} open={true} /> -->
 
 <div class="theme-primary">
-	{#if product.variants.edges.length > 1}
+	{#if product.variants.edges.length > 1 && hideVariants === false}
 		<form bind:this={variantForm} on:submit|preventDefault on:change={setSelectedOptions}>
 			{#each product.options as option}
 				{@const text = slugify(option.name)}

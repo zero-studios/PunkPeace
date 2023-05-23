@@ -9,6 +9,7 @@ import ResponsiveImage from "$lib/components/elements/ResponsiveImage.svelte";
 import Debug from "$lib/components/Debug.svelte";
 import AddToCart from "$lib/components/shop/AddToCart.svelte";
 import { user } from "$lib/stores/user";
+	import PriceDisplay from "./PriceDisplay.svelte";
 
 /** inline variable description */
 export let product;
@@ -23,6 +24,13 @@ $: if(imageUrl && imageUrl !== image) {
 
 let visible = false;
 let productChecked = false;
+let firstSelectedOrAvailable = product.variants.edges.find((v) => { return v.node.availableForSale === true; });
+let soldOut = false;
+
+if(!firstSelectedOrAvailable) {
+	firstSelectedOrAvailable = product.variants.edges[0];
+	soldOut = true;
+}
 </script>
 
 <article on:mouseenter={() => { visible = true; }} on:mouseleave={() => { visible = false; }}>
@@ -37,8 +45,18 @@ let productChecked = false;
 	</div>
 	<div class="pt-[20px] flex">
 		<div class="flex-grow">
-			<h1 class="h5 pr-[50px]"><a href="/products/{product.handle}/">{product.title}</a></h1>
+			<h1 class="h6 !mb-0 pr-[20px]"><a href="/products/{product.handle}/">{product.title}</a></h1>
 		</div>
+		<p class="inline-block font-bold text-xs !mb-0">
+			{#if soldOut}
+				Sold Out
+			{:else}
+				<PriceDisplay price={firstSelectedOrAvailable.node.price.amount} comparePrice={firstSelectedOrAvailable.node.comparePrice?.amount} />
+			{/if}
+		</p>
 	</div>
-	<AddToCart product={product} bind:image={imageUrl} defaultImage={product.featuredImage.url} />
+	{#if firstSelectedOrAvailable.node.title !== "Default Title"}
+		<p class="text-[length:10px] pt-[5px] !mb-0">{firstSelectedOrAvailable.node.title}</p>
+	{/if}
+	<!-- <AddToCart product={product} hideVariants={true} bind:image={imageUrl} defaultImage={product.featuredImage.url} /> -->
 </article>

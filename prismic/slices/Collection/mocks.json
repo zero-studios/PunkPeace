@@ -23,6 +23,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "tune",
 				"type": "Text"
+			},
+			"hide_count": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

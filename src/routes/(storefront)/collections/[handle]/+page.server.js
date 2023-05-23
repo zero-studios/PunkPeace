@@ -39,7 +39,13 @@ export async function load({ fetch, params, parent, request, url }) {
 				id
 				image {
 					altText
+					height
 					url
+					width
+				}
+				metafield(namespace: "custom", key: "drop_number") {
+					key
+					value
 				}
 				products(${filterString}, sortKey: ${sort}) {
 					edges {
@@ -126,6 +132,10 @@ export async function load({ fetch, params, parent, request, url }) {
 						hasPreviousPage
 						startCursor
 					}
+				}
+				seo {
+					title
+					description
 				}
 				title
 			}
