@@ -37,7 +37,7 @@ onMount(() => {
 
 		$user.shop.cart.id = data.cart;
 
-		fetch("/api/shop/cart", {
+		fetch("/api/v1/shop/cart", {
 			method: "POST",
 			body: JSON.stringify({
 				id: data.cart

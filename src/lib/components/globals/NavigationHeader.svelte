@@ -10,7 +10,7 @@ let setHeight;
 	<div bind:clientHeight={setHeight} class="fixed left-0 top-0 w-full px-[var(--site-gutter)] py-[30px] dk:py-[var(--site-gutter)] flex justify-between z-50">
 		<a href="/" class="h2 pointer-events-auto !m-0 {($user.site.darkMode === true) ? "rotate-180" : ""}" on:click={() => { $user.site.darkMode = true; }}>PUNK</a>
 		{#if $user.shop.cart?.obj?.lines?.edges?.length > 0}
-			<div class="h-full w-[60px] relative" transition:slide="{{ axis: "x", duration: 600 }}">
+			<div class="h-full w-auto relative" transition:slide="{{ axis: "x", duration: 600 }}">
 				<CartTrigger />
 			</div>
 		{/if}

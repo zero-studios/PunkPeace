@@ -57,6 +57,8 @@ const onSubmit = async (event) => {
 
 	let data = await response.json();
 
+	console.log(data);
+
 	if(data?.cartId) {
 		$user.shop.cart.obj = data.cart;
 		$user.shop.cart.id = data.cartId;
@@ -130,21 +132,27 @@ $: variantId = selected.variant?.node?.id || null;
 
 <!-- <Debug object={selected.options} open={true} /> -->
 
-<div class="theme-primary">
+<div class="text-[var(--text-color)]">
 	{#if product.variants.edges.length > 1 && hideVariants === false}
 		<form bind:this={variantForm} on:submit|preventDefault on:change={setSelectedOptions}>
 			{#each product.options as option}
 				{@const text = slugify(option.name)}
 				<div>
-					<legend>{option.name}</legend>
+					<legend class="sr-only">{option.name}</legend>
 					<div class="flex flex-wrap">
-						{#each option.values as value}
+						<!-- {#each option.values as value}
 							{@const valueText = slugify(value)}
 							<div class="">
 								<input class="hidden" id={`product_${productId}_${text}_${valueText}`} type="radio" name={`${text}`} value={value} checked={(selected.options[text] === value ? "checked" : false)} />
 								<label class="btn btn-alt block" for={`product_${productId}_${text}_${valueText}`}>{value}</label>
 							</div>
-						{/each}
+						{/each} -->
+						<select class="select mb-[20px] uppercase bg-[var(--bg-color)] [&>*]:text-[var(--text-color)]" name={`${text}`}>
+							<option>Select Your {text}</option>
+							{#each option.values as value}
+								<option value={value} selected={(selected.options[text] === value ? "checked" : false)}>{value}</option>
+							{/each}
+						</select>
 					</div>
 				</div>
 			{/each}

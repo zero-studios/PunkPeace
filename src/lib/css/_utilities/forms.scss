@@ -21,10 +21,10 @@ form {
 		}
 	}
 
-	input {
+	input,
+	select {
 		background-color: inherit;
-		border: 2px solid currentColor;
-		border-radius: 8px;
+		border: 1px solid currentColor;
 		display: block;
 		font-size: 1em;
 		font-weight: 700;
@@ -40,13 +40,19 @@ form {
 
 		&:focus,
 		&:active {
-			outline: 1px solid currentColor;
+			outline: 3px solid currentColor;
+		}
+	}
+
+	select {
+
+		option {
+
 		}
 	}
 
 	button {
-		border-radius: 8px;
-		display: block;
+				display: block;
 		margin: 0;
 		padding: 0;
 
@@ -87,8 +93,8 @@ form {
 	}
 
 	select {
-		color: $black;
-		background-color: $white !important;
+		color: var(--text-color, $black);
+		background-color: var(--text-color, $white) !important;
 		width: 100%;
 		height: 46px;
 		border-radius: 6px;

@@ -1,7 +1,8 @@
 .btn {
-	border-color: currentColor;
+	border-color: var(--text-color);
 	border-width: 1px;
 	cursor: pointer;
+	display: block;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 1;
@@ -12,5 +13,10 @@
 	&:hover {
 		background-color: var(--bg-inverse);
 		color: var(--text-inverse);
+	}
+
+	&:active,
+	&:focus {
+		outline: 3px solid currentColor;
 	}
 }

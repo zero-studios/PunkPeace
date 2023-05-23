@@ -46,10 +46,6 @@ let productSchema = {
 };
 </script>
 
-<br />
-<br />
-<br />
-<br />
 <Debug object={data.product} />
 
 {#key data.product.id}
