@@ -4,6 +4,7 @@ import { slugify } from "$js/helpers/slugify";
 import Debug from "$lib/components/Debug.svelte";
 import PriceDisplay from "$lib/components/shop/PriceDisplay.svelte";
 import { formatCartLines } from "$js/helpers/cart";
+import { ChevronDownIcon, PlusIcon, MinusIcon } from "svelte-feather-icons";
 
 export let product;
 export let image = null;
@@ -128,6 +129,7 @@ if(firstSelectedOrAvailable) {
 $: price = selected.variant?.node?.price?.amount || null;
 $: comparePrice = selected.variant?.node?.comparePrice?.amount || null;
 $: variantId = selected.variant?.node?.id || null;
+$: quantity = 1;
 </script>
 
 <!-- <Debug object={selected.options} open={true} /> -->
@@ -147,12 +149,17 @@ $: variantId = selected.variant?.node?.id || null;
 								<label class="btn btn-alt block" for={`product_${productId}_${text}_${valueText}`}>{value}</label>
 							</div>
 						{/each} -->
-						<select class="select mb-[20px] uppercase bg-[var(--bg-color)] [&>*]:text-[var(--text-color)]" name={`${text}`}>
-							<option>Select Your {text}</option>
-							{#each option.values as value}
-								<option value={value} selected={(selected.options[text] === value ? "checked" : false)}>{value}</option>
-							{/each}
-						</select>
+						<div class="select-group relative mb-[20px] w-full">
+							<select class="select appearance-none uppercase bg-[var(--bg-color)] [&>*]:text-[var(--text-color)] text-[length:13px]" name={`${text}`}>
+								<option>Select Your {text}</option>
+								{#each option.values as value}
+									<option value={value} selected={(selected.options[text] === value ? "checked" : false)}>{value}</option>
+								{/each}
+							</select>
+							<div class="pointer-events-none absolute right-[15px] top-1/2 -translate-y-1/2">
+								<ChevronDownIcon strokeWidth={1} />
+							</div>
+						</div>
 					</div>
 				</div>
 			{/each}
@@ -162,14 +169,23 @@ $: variantId = selected.variant?.node?.id || null;
 		{#if selected.variant?.node}
 			<input type="hidden" name="variant" bind:value={variantId} />
 			<input type="hidden" name="product" bind:value={product.id} />
-			<input type="hidden" name="quantity" value="1" />
 			{#if $user?.shop?.cart?.id}
 				<input type="hidden" name="cart" value={$user.shop.cart.id} />
 				<input type="hidden" name="lines" value={JSON.stringify(formatCartLines($user.shop.cart.obj))} />
 			{/if}
 		{/if}
 		{#if selected.variant?.node?.availableForSale === true}
-			<button class="btn btn-primary w-full" type="submit">Add To Cart &ndash; <PriceDisplay price={price} comparePrice={comparePrice} /></button>
+			<div class="field-group mb-[20px] w-full">
+				<div class="border border-current pl-[24px] pr-[18px] pt-[19px] pb-[18px] flex justify-between items-center w-full">
+					<p class="text-[length:13px] font-bold m-0">QTY</p>
+					<div class="flex">
+						<button on:click={() => { if(quantity > 1) quantity--; }}><MinusIcon size={"18"} strokeWidth={1.25} /></button>
+						<input class="border-0 p-0 w-[30px] m-0 appearance-none text-center min-w-0 inline-block h-auto pointer-events-none" type="text" name="quantity" readonly bind:value={quantity} />
+						<button on:click={() => { quantity++; }}><PlusIcon size={"18"} strokeWidth={1.25} /></button>
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-primary w-full" type="submit">Add To Cart</button>
 		{:else}
 			<button class="btn w-full" type="submit" disabled>Sold Out</button>
 		{/if}

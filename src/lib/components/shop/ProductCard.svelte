@@ -46,7 +46,7 @@ if(!firstSelectedOrAvailable) {
 	</div>
 	<div class="pt-[20px] flex">
 		<div class="flex-grow">
-			<h1 class="h6 !mb-0 pr-[20px]"><a href="/products/{product.handle}/">{product.title}</a></h1>
+			<h1 class="h6 !mb-0 pr-[20px] {(soldOut === true) ? "line-through" : ""}"><a href="/products/{product.handle}/">{product.title}</a></h1>
 		</div>
 		<p class="inline-block font-bold text-xs !mb-0">
 			{#if soldOut}

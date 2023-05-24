@@ -11,90 +11,37 @@ export async function POST({ cookies, request }) {
 		errors: []
 	};
 
-	console.log("existing lines", data.lines);
-
-	let callType = "cartCreate";
-	let callInput = "$input: CartInput!";
-	let callVars = "input: $input"
-
-	if(data.cart) {
-		callType = "cartLinesAdd";
-		callInput = "$cartId: ID!, $lines: [CartLineInput!]!";
-		callVars = "cartId: $cartId, lines: $lines";
-	}
-
 	/** --- Setup line object --- */
-	let lines = (data.lines) ? JSON.parse(data.lines) : [];
-	let add = true;
-	let update = 0;
+	let variables;
+	let callType = "cartLinesUpdate";
+	let lines = (data.lines) ? data.lines : [];
 
-	/** --- Check previous lines for new product addition --- */
-	[...lines].forEach((line, key) => {
+	if(!data.cart) {
 
-		let match = 0;
+		returnObj.errors.push("Cart ID is required to update");
 
-		// console.log("attr", (data.attributes && JSON.stringify(line.attributes) == data.attributes) || !data.attributes && line.attributes.length <= 0);
-
-		/** --- check if attributes match --- */
-		if((data.attributes && JSON.stringify(line.attributes) == data.attributes) || !data.attributes && line.attributes.length <= 0) {
-			++match;
-		}
-
-		// console.log("sellingPlan", data.sellingPlanId === line.sellingPlanId);
-
-		/** --- Check for sellingPlanId --- */
-		if(data.sellingPlanId === line.sellingPlanId) {
-			++match;
-		}
-
-		// console.log("id", data.variant === line.merchandiseId);
-
-		/** --- check if variant ID matches --- */
-		if(data.variant === line.merchandiseId) {
-			++match;
-		}
-
-		/** --- block addition of product, increase quantity of line --- */
-		if(match >= 3) {
-
-			add = false;
-			line.quantity = line.quantity + parseInt(data.quantity);
-
-			/** --- update one product --- */
-			callType = "cartLinesUpdate";
-			callInput = "$cartId: ID!, $lines: [CartLineUpdateInput!]!";
-			lines = line;
-
-			return;
-		}
-	});
-
-	/** --- add one product --- */
-	if(typeof data.variant === "string" && add === true) {
-
-		lines = [{
-			merchandiseId: data.variant,
-			quantity: parseInt(data.quantity)
-		}];
+		return json(returnObj);
 	}
 
-	let variables = {
-		input: {
-			lines: lines
-		}
-	};
-
 	if(data.cart) {
+
+		let lineObject = lines.map((i) => {
+			return {
+				attributes: i.node.attributes,
+				id: i.node.id,
+				merchandiseId: i.node.merchandise.id,
+				quantity: i.node.quantity
+			};
+		});
 
 		variables = {
 			cartId: `gid://shopify/Cart/${data.cart}`,
-			lines: lines
+			lines: lineObject
 		}
 	}
 
-	// TODO: do I need metafields?
-	let query = `mutation ${callType}(${callInput}) {
-		${callType}(${callVars}) {
+	let query = `mutation ${callType}($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+		${callType}(cartId: $cartId, lines: $lines) {
 			cart {
 				attributes {
 					key
@@ -189,11 +136,7 @@ export async function POST({ cookies, request }) {
 		}
 	}`;
 
-	// console.log(query, variables);
-
 	let shopRequest = await shopifyStorefrontQuery(fetch, query, variables);
-
-	// console.log("req", shopRequest?.data);
 
 	if(shopRequest?.data?.errors) returnObj.errors = shopRequest.data.errors;
 	if(shopRequest?.data[callType]?.cart) {
@@ -203,8 +146,6 @@ export async function POST({ cookies, request }) {
 		let domain = "punkpeace.world";
 
 		if(dev) domain = "127.0.0.1";
-
-		// console.log(returnObj.cart);
 
 		let cartId = shopRequest.data[callType].cart.id.replace("gid://shopify/Cart/", "");
 		let date = new Date();

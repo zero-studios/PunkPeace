@@ -91,6 +91,10 @@ export async function POST({ cookies, request }) {
 								product {
 									handle
 									id
+									metafields(identifiers: [{ namespace: "custom", key: "color_description" }]) {
+										key
+										value
+									}
 									productType
 									title
 								}
@@ -101,31 +105,6 @@ export async function POST({ cookies, request }) {
 							}
 						}
 						quantity
-						sellingPlanAllocation {
-							checkoutChargeAmount {
-								amount
-							}
-							priceAdjustments {
-								compareAtPrice {
-									amount
-								}
-								price {
-									amount
-								}
-							}
-							remainingBalanceChargeAmount {
-								amount
-							}
-							sellingPlan {
-								description
-								id
-								name
-								options {
-									name
-									value
-								}
-							}
-						}
 					}
 				}
 			}

@@ -7,7 +7,6 @@
 	"plugins": [
 		"plugins/markdown",
 		"plugins/commentsOnly",
-		"node_modules/better-docs/component",
 		"node_modules/jsdoc-tsimport-plugin/index.js"
 	],
 	"opts": {
