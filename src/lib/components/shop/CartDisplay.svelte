@@ -53,7 +53,7 @@ const setClose = () => {
 					{@const colorDesc = (lineItem.node.merchandise.product?.metafields[0] && typeof lineItem.node.merchandise.product?.metafields[0] === "object") ? lineItem.node.merchandise.product?.metafields?.find((m) => m?.key === "color_description") : null }
 					<div class="grid grid-cols-2 gap-[15px] mb-[14px]">
 						<div class="rounded-[10px] overflow-hidden">
-							<ResponsiveImage src={lineItem.node.merchandise.image.url} width={240} />
+							<ResponsiveImage src={lineItem.node.merchandise.image.url} width={240} shopify={true} />
 						</div>
 						<div class="flex flex-col justify-center">
 							<div class="flex w-full justify-between">
