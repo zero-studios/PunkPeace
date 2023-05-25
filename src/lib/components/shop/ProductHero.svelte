@@ -1,4 +1,5 @@
 <script>
+import { onMount } from "svelte";
 import { register } from "swiper/element/bundle";
 import AddToCart from "$lib/components/shop/AddToCart.svelte";
 import PriceDisplay from "$lib/components/shop/PriceDisplay.svelte";
@@ -34,6 +35,11 @@ const onRealIndexChange = (e) => {
 
 /** @type {import('swiper/element/bundle').register} */
 register();
+
+onMount(() => {
+
+	if(swiper) swiper.swiper.update();
+});
 </script>
 
 <div class="p-[var(--site-gutter)]">

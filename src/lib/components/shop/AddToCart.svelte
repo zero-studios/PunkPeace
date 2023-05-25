@@ -150,7 +150,7 @@ $: quantity = 1;
 							</div>
 						{/each} -->
 						<div class="select-group relative mb-[20px] w-full">
-							<select class="select appearance-none uppercase bg-[var(--bg-color)] [&>*]:text-[var(--text-color)] text-[length:13px]" name={`${text}`}>
+							<select class="select appearance-none uppercase bg-[var(--bg-color)] [&>*]:text-[var(--text-color)] text-[length:13px] []" name={`${text}`}>
 								<option>Select Your {text}</option>
 								{#each option.values as value}
 									<option value={value} selected={(selected.options[text] === value ? "checked" : false)}>{value}</option>
@@ -179,9 +179,9 @@ $: quantity = 1;
 				<div class="border border-current pl-[24px] pr-[18px] pt-[19px] pb-[18px] flex justify-between items-center w-full">
 					<p class="text-[length:13px] font-bold m-0">QTY</p>
 					<div class="flex">
-						<button on:click={() => { if(quantity > 1) quantity--; }}><MinusIcon size={"18"} strokeWidth={1.25} /></button>
+						<button class="text-[var(--text-color)]" on:click={() => { if(quantity > 1) quantity--; }}><MinusIcon size={"19"} strokeWidth={1} /></button>
 						<input class="border-0 p-0 w-[30px] m-0 appearance-none text-center min-w-0 inline-block h-auto pointer-events-none" type="text" name="quantity" readonly bind:value={quantity} />
-						<button on:click={() => { quantity++; }}><PlusIcon size={"18"} strokeWidth={1.25} /></button>
+						<button class="text-[var(--text-color)]" on:click={() => { quantity++; }}><PlusIcon size={"19"} strokeWidth={1} /></button>
 					</div>
 				</div>
 			</div>
