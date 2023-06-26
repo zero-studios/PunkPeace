@@ -1,0 +1,32 @@
+{
+  "id": "product_type",
+  "label": "Product Type",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading5"
+        }
+      },
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "one_column_richtext": { "type": "SharedSlice" },
+            "collection": { "type": "SharedSlice" },
+            "fullscreen_media": { "type": "SharedSlice" }
+          }
+        }
+      }
+    }
+  }
+}

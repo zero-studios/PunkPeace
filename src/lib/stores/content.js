@@ -1,11 +1,9 @@
 import { get, readable, writable } from "svelte/store";
-import createClient from "$lib/integrations/prismic/client";
 
 export const helpers = readable({
-	/** @type {import('@prismicio/client').CreateClient} */
-	client: createClient,
 	linkResolver: (document) => {
 
+		/** External? */
 		if(document.link_type == "Web") {
 
 			let url = `${document.url}`;
@@ -13,8 +11,13 @@ export const helpers = readable({
 			return `${url}`;
 		}
 
+		if(document.link_type == "") {
+
+		}
+
 		let landingPage = get(landing);
 
+		/** Home */
 		if(document.uid === landingPage.uid) {
 			return "/";
 		}

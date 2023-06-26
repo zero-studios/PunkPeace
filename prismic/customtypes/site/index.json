@@ -3,6 +3,7 @@
   "label": "Site",
   "repeatable": false,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "title": {
@@ -21,6 +22,55 @@
           "label": "Landing Page",
           "select": "document",
           "customtypes": ["pages"]
+        }
+      },
+      "default_product_template": {
+        "type": "Link",
+        "config": {
+          "label": "Default Product Template",
+          "select": "document",
+          "customtypes": ["product_type"]
+        }
+      }
+    },
+    "Footer": {
+      "copyright": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Copyright",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "footer_note": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer Note",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "footer_navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Navigation",
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": { "label": "Link", "placeholder": "", "select": null }
+            },
+            "link_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Link Text",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "single": "paragraph"
+              }
+            }
+          }
         }
       }
     }

@@ -10,8 +10,8 @@ let setHeight;
 
 <header style="--setHeight: {setHeight}px;" class="h-[var(--setHeight,_180px)] pointer-events-none">
 	<div bind:clientHeight={setHeight} class="fixed left-0 top-0 w-full px-[var(--site-gutter)] py-[30px] dk:py-[var(--site-gutter)] flex justify-between z-50">
-		<div class="w-[calc(50%_-_10px)]">
-			<a href="/" class="h2 pointer-events-auto !leading-[0.8] !m-0 {($user.site.darkMode === true) ? "rotate-180" : ""}" on:click={(e) => {
+		<div class="w-[calc(50%_-_10px)] flex justify-start items-center whitespace-nowrap">
+			<a href="/" class="h2 block pointer-events-auto !leading-[0.8] !m-0 {($user.site.darkMode === true) ? "rotate-180" : ""}" on:click={(e) => {
 				$user.site.darkMode = true;
 				if($page.url.pathname === "/") e.preventDefault();
 			}}>PUNK</a>
@@ -22,8 +22,8 @@ let setHeight;
 				<CartDisplay />
 			</div>
 		{/if}
-		<div class="w-[calc(50%_-_10px)] text-right">
-			<a href="/" class="h2 pointer-events-auto !leading-[0.8] !m-0 {($user.site.darkMode === true) ? "" : "rotate-180"}" on:click={(e) => {
+		<div class="w-[calc(50%_-_10px)] flex justify-end items-center whitespace-nowrap">
+			<a href="/" class="h2 block pointer-events-auto !leading-[0.8] !m-0 {($user.site.darkMode === true) ? "" : "rotate-180"}" on:click={(e) => {
 				$user.site.darkMode = false;
 				if($page.url.pathname === "/") e.preventDefault();
 			}}>PEACE</a>

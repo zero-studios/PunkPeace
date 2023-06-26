@@ -30,7 +30,7 @@ export const shopifyAdminQuery = async (fetch, query, variables = {}, options = 
 
 	try {
 
-		const result = await fetch("https://punkpeace.myshopify.com/admin/api/2023-04/graphql.json", {
+		const result = await fetch(`https://punkpeace.myshopify.com/admin/api/${year}-04/graphql.json`, {
 			method: options.method || "POST",
 			headers: options.headers || {
 				"Content-type": "application/json",

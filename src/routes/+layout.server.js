@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 import { get } from "svelte/store";
-import { helpers } from "$lib/stores/content";
+import { helpers } from "$lib/integrations/prismic/client";
 
 export const trailingSlash = "always";
 
@@ -31,6 +31,9 @@ export async function load({ cookies, fetch, params, request, url }) {
 					}
 				}
 			}
+			default_product_template {
+				...default_product_templateFields
+			}
 		}
 	}`;
 
@@ -45,9 +48,15 @@ export async function load({ cookies, fetch, params, request, url }) {
 	 * ecommerce
 	 */
 	let cart = cookies.get("cart");
+	let pageData = response?.data?.landing_page?.data;
+	let siteData = response?.data;
+
+	if(siteData.landing_page) delete siteData.landing_page;
 
 	return {
-		page: response?.data?.landing_page?.data,
+		site: siteData,
+		page: pageData,
+		product_template: response?.data?.default_product_template?.data,
 		cart: cart
 	};
 }

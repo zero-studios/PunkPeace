@@ -5,6 +5,7 @@
 import { dev } from "$app/environment";
 import { afterNavigate } from "$app/navigation";
 import { onMount } from "svelte";
+import { site, landing } from "$lib/stores/content";
 import { storage } from "$lib/stores/storage";
 import { user } from "$lib/stores/user";
 import NavigationHeader from "$lib/components/globals/NavigationHeader.svelte";
@@ -13,6 +14,9 @@ import Container from "$lib/components/slots/Container.svelte";
 import GlobalMask from "$lib/components/globals/GlobalMask.svelte";
 
 export let data;
+
+$site = data.site;
+$landing = data.page;
 
 let footerHeight;
 let mainMinHeight = 0;
@@ -174,7 +178,7 @@ onMount(() => {
 	<a class="sr-only" href="#main-content">Skip to content</a>
 	<NavigationHeader />
 	<div class="{($storage.scrollLock === true) ? "" : ""}">
-		<main id="main-content" tabindex="-1" style="min-height:{mainMinHeight}px;">
+		<main id="main-content" class="max-w-[1920px] m-auto" tabindex="-1" style="min-height:{mainMinHeight}px;">
 			<slot />
 		</main>
 		<NavigationFooter bind:footerHeight={footerHeight} />

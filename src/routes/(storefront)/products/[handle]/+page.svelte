@@ -1,6 +1,7 @@
 <script>
 import Debug from "$lib/components/Debug.svelte";
 import ProductHero from "$lib/components/shop/ProductHero.svelte";
+import SliceSwitch from "$lib/components/slots/SliceSwitch.svelte";
 import { JsonLd } from "svelte-meta-tags";
 
 export let data;
@@ -46,9 +47,14 @@ let productSchema = {
 };
 </script>
 
-<Debug object={data.product} />
+<Debug object={data.template} />
 
 {#key data.product.id}
 	<ProductHero product={data.product} variant={data.variant} />
+	{#if data?.template?.slices && data?.template?.slices.length > 0}
+		{#each data.template.slices as slice, index}
+			<SliceSwitch slice={slice} index={index} />
+		{/each}
+	{/if}
 	<JsonLd schema={productSchema} output={"body"} />
 {/key}

@@ -4,8 +4,6 @@ import sm from "./slicemachine.config.json";
 const repoName = sm.repositoryName;
 const accessToken = import.meta.env.PRISMIC_ACCESS_TOKEN;
 
-console.log(repoName, accessToken);
-
 /** @type {import("@prismicio/client").ClientConfig["routes"]} */
 const routes = [
 	{

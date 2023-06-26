@@ -24,6 +24,7 @@ export let alt = "";
 export let breakpoint = 768;
 export let cover = false;
 export let contain = false;
+export let rounded = false;
 export let height = null;
 export let src;
 export let srcMobile = src;
@@ -110,7 +111,7 @@ onMount(() => {
 			<img alt={alt} class="lazy {(!cover) ? "" : "object-cover w-full h-full absolute object-center"} {(!contain) ? "" : "object-contain w-full h-full absolute object-center"} transition-opacity opacity-0" width={width} height={height} data-src={src} />
 		</div>
 	{:else}
-		<picture class="{(!cover) ? "max-w-full" : "object-cover w-full h-full absolute object-center z-0"} {(!contain) ? "" : "object-contain w-full h-full absolute object-center z-0"}">
+		<picture class="{(!cover) ? "max-w-full" : "object-cover w-full h-full absolute object-center z-0"} {(!rounded) ? "" : "rounded-[10px] overflow-hidden"} {(!contain) ? "" : "object-contain w-full h-full absolute object-center z-0"}">
 			<source data-srcset={srcSet} sizes={sizes} />
 			<img alt={alt} class="lazy {(!cover) ? "max-w-full" : "object-cover w-full h-full absolute object-center"} transition-opacity opacity-0" src={(placeholder === true) ? placeholderSrc : null} width={width} height={height} data-src={src} />
 		</picture>

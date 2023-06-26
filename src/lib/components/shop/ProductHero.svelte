@@ -62,15 +62,15 @@ onMount(() => {
 					</div>
 					{#each product.images.edges as image}
 						<swiper-slide class="w-full h-[calc(100%_-_34px)] relative rounded-[10px] overflow-hidden pointer-events-auto">
-							<ResponsiveImage src={image.node.url} alt={image.node.altText} width={image.node.width} height={image.node.height} cover={true} shopify={true} />
+							<ResponsiveImage src={image.node.url} alt={image.node.altText} width={image.node.width} height={image.node.height} cover={true} shopify={true} rounded={true} />
 						</swiper-slide>
 					{/each}
 				</swiper-container>
 			{/if}
 		</div>
-		<div class="flex items-center">
-			<div class="max-w-[350px] m-auto w-full">
-				<div class="pt-[20px] flex ">
+		<div class="flex items-center mt-[var(--site-gutter)] dk:mt-0">
+			<div class="max-w-[400px] dk:max-w-[350px] m-auto w-full">
+				<div class="pt-[20px] flex">
 					<div class="flex-grow">
 						<h1 class="h6 !mb-0 pr-[20px] {(soldOut === true) ? "line-through" : ""}">{product.title}</h1>
 					</div>

@@ -1,10 +1,10 @@
 import { error, redirect } from "@sveltejs/kit";
 import { get } from "svelte/store";
-import { helpers } from "$lib/stores/content";
+import { helpers } from "$lib/integrations/prismic/client";
 import { shopifyStorefrontQuery } from "$lib/integrations/shopify/client";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ cookies, fetch, params, parent, url }) {
+export async function load({ cookies, fetch, params, parent, request, url }) {
 
 	const data = await parent();
 	const handle = params.handle;
@@ -113,8 +113,43 @@ export async function load({ cookies, fetch, params, parent, url }) {
 		}
 	`);
 
+	/** --- Now, see if there is a prismic linked page --- */
+	const prismic = get(helpers);
+
+	let graphQuery = `{
+		products {
+			...productsFields
+		}
+	}`;
+
+	let template = {};
+
+	try {
+
+		/** @type {import('@prismicio/client').Client} */
+		const response = await prismic.client({ request, fetch }).getByUID("products", handle, {
+			graphQuery: graphQuery
+		}).catch(err => {
+			throw error(400, err.message);
+		});
+
+
+
+		console.log("Prismic response", response?.data);
+
+	} catch(error) {
+
+		template = data?.product_template;
+
+		/** Backup */
+		console.log("data", data);
+
+		console.log("ERROR", error);
+	}
+
 	return {
-		product: productRequest.data.product,
+		product: productRequest?.data?.product,
+		template: template,
 		variant: searchParams.variant || null
 	};
 }

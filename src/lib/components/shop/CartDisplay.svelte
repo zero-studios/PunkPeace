@@ -48,7 +48,7 @@ const setClose = () => {
 {#if $storage.cartOpen === true}
 	<div class="absolute pointer-events-auto w-[375px] text-[var(--text-color)] bg-[var(--bg-color)] max-w-[calc(100vw_-_30px)] border border-current -top-[20px] -translate-x-1/2 left-1/2 p-[15px] z-40" on:mouseenter={() => { clearTimeout(timeout); }} on:mouseleave={setClose} >
 		<div class="pt-[33px] relative">
-			<form>
+			<form method="POST" action="/api/v1/shop/cart/update" on:submit|preventDefault>
 				{#each $user.shop?.cart?.obj?.lines?.edges as lineItem, i}
 					{@const colorDesc = (lineItem.node.merchandise.product?.metafields[0] && typeof lineItem.node.merchandise.product?.metafields[0] === "object") ? lineItem.node.merchandise.product?.metafields?.find((m) => m?.key === "color_description") : null }
 					<div class="grid grid-cols-2 gap-[15px] mb-[14px]">
